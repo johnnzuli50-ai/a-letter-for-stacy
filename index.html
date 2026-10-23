@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7eee9">
+  <title>For Stacy ❤️</title>
+  <style>
+    :root { --paper:#fffaf6; --rose:#b75d70; --rose-dark:#8f4052; --ink:#44363a; --muted:#806e72; --line:#ead8d5; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; min-height:100vh; padding:24px 14px;
+      display:flex; align-items:center; justify-content:center;
+      background:radial-gradient(circle at top, #fffaf7 0, #f7eee9 58%, #f0e1df 100%);
+      color:var(--ink); font-family:Georgia, "Times New Roman", serif;
+    }
+    .shell { width:100%; max-width:680px; }
+    .card {
+      background:var(--paper); border:1px solid rgba(183,93,112,.18);
+      border-radius:22px; padding:clamp(24px, 6vw, 48px);
+      box-shadow:0 18px 55px rgba(93,57,63,.10);
+    }
+    .topline { text-align:center; color:var(--rose); font:600 11px/1.5 Arial,sans-serif; letter-spacing:.22em; text-transform:uppercase; }
+    h1 { text-align:center; font-size:clamp(2rem, 7vw, 3.1rem); font-weight:normal; margin:14px 0 10px; }
+    .intro { text-align:center; color:var(--muted); font:15px/1.7 Arial,sans-serif; max-width:420px; margin:0 auto; }
+    .heart { text-align:center; color:var(--rose); font-size:24px; margin:22px 0; }
+    button {
+      display:block; margin:0 auto; border:0; border-radius:999px; padding:14px 24px;
+      background:var(--rose); color:white; font:600 14px Arial,sans-serif; cursor:pointer;
+      box-shadow:0 7px 18px rgba(183,93,112,.22); transition:background .2s ease, transform .2s ease;
+    }
+    button:hover { background:var(--rose-dark); transform:translateY(-1px); }
+    button:focus-visible { outline:3px solid #d7a1ac; outline-offset:4px; }
+    .letter { display:none; margin-top:30px; padding-top:28px; border-top:1px solid var(--line); }
+    .letter.open { display:block; }
+    .letter p { font-size:17px; line-height:1.85; margin:0 0 17px; }
+    .salutation { color:var(--rose-dark); font-size:21px !important; }
+    .signature { margin-top:26px !important; }
+    .footer { text-align:center; color:#9b8589; font:12px/1.6 Arial,sans-serif; margin:22px 0 0; }
+    @media (max-width:420px) { body { padding:12px 9px; } .card { border-radius:17px; } .letter p { font-size:16px; line-height:1.8; } }
+    @media print { body { background:white; padding:0; } .card { box-shadow:none; border:0; } button, .intro, .heart, .topline { display:none; } .letter { display:block; } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <div class="topline">A message from the heart</div>
+      <h1>For Stacy <span aria-hidden="true">♡</span></h1>
+      <p class="intro">A personal letter, written with honesty and care. Read it whenever you feel ready.</p>
+      <div class="heart" aria-hidden="true">♡</div>
+      <button id="openLetter" type="button" aria-expanded="false" aria-controls="letter">Open your letter ❤️</button>
+      <article class="letter" id="letter">
+        <p class="salutation">Dear Stacy,</p>
+        <p>I’ve been thinking about our last conversation and everything that has happened between us. I’ve taken time to reflect on my actions, and I understand more clearly how much I hurt, disappointed, and embarrassed you.</p>
+        <p>For a long time, I focused on defending myself instead of stepping back and recognising my own mistakes. Looking back, I can see how my actions let you down, even when things between us seemed to be going well. I understand why this affected your trust in me.</p>
+        <p>Regarding my decision to talk to Sharon and Mary, even if I believed I was trying to save our relationship, I didn’t fully consider the consequences. I can understand how involving them may have exposed something personal between us and left you feeling disappointed and embarrassed. I’m genuinely sorry for putting you in that position.</p>
+        <p>I know an apology cannot undo what happened, and I don’t expect you to forget it simply because I’m sorry. I also understand that forgiveness doesn’t automatically make the hurt disappear or bring trust back overnight.</p>
+        <p>I regret the choices I made, but I can’t change the past. What I can do is take responsibility, learn from this, and work on changing the behaviours that caused you pain. I know that real change has to be shown through consistent actions, not just promises in a letter.</p>
+        <p>You still matter to me, Stacy, and I value what we have shared. I’m not writing this to pressure you, make you feel guilty, or ask you to pretend everything is fine. I simply want you to know that I recognise the impact of my actions and that my apology is sincere.</p>
+        <p>If we both decide that we want to work towards rebuilding what was damaged, I would welcome the chance to do that with more honesty, respect, and maturity. I understand that it has to be a choice we both make, and I will respect your feelings and the time you need.</p>
+        <p>I can’t promise I’ll never make a mistake again, but I can promise to take responsibility for my choices and make a genuine effort to do better. I don’t expect you to trust my words immediately; I hope, over time, my actions can speak for themselves.</p>
+        <p>Thank you for the time, care, memories, and dreams we have shared. I don’t take them for granted. Whatever you decide, I wanted to offer you an honest apology and acknowledge my part in what happened.</p>
+        <p>I’m truly sorry, Stacy. Please take your time to process this. You don’t have to reply immediately.</p>
+        <p class="signature">With sincerity,<br>John</p>
+      </article>
+      <p class="footer">No pressure to respond. Take all the time you need.</p>
+    </section>
+  </main>
+  <script>
+    const button = document.getElementById('openLetter');
+    const letter = document.getElementById('letter');
+    button.addEventListener('click', () => {
+      const isOpen = letter.classList.toggle('open');
+      button.setAttribute('aria-expanded', String(isOpen));
+      button.textContent = isOpen ? 'Close letter' : 'Open your letter ❤️';
+      if (isOpen) letter.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</body>
+</html>
